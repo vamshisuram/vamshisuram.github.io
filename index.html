@@ -1,14 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Vamshi Suram</title>
-        <script type="text/javascript" src="lib/d3.js"></script>
-    </head>
-    <body>
-        <script type="text/javascript">
-            d3.select("body").append("p").text("Vamshi Suram..!");
-        </script>
-        <p></p>
-    </body>
-</html>
+---
+layout: default
+title: Vamshi Suram's notes
+---
+
+<div>
+  <ul class="post">
+    {% for post in site.posts %}
+    <li class="post"><span style="color:green; font-size:9pt"> </span>
+    <a style="text-decoration:none"  href="{{site.baseurl}}{{post.url}}">{{ post.title }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+

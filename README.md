@@ -1,2 +1,0 @@
-vamshisuram.github.io
-=====================

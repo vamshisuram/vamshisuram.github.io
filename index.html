@@ -1,15 +1,86 @@
----
-layout: default
-title: Vamshi Suram's notes
----
 
-<div>
-  <ul class="post">
-    {% for post in site.posts %}
-    <li class="post"><span style="color:green; font-size:9pt"> </span>
-    <a style="text-decoration:none"  href="{{site.baseurl}}{{post.url}}">{{ post.title }}</a>
-    </li>
-    {% endfor %}
-  </ul>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="vamshisuram tech notes">
+    <meta name="author" content="vamshi suram">
+    <link rel="shortcut icon" href="">
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles/style.css" rel="stylesheet">
 
+
+ <!--   <title>Carousel Template for Bootstrap</title>
+    <link href="carousel.css" rel="stylesheet">   -->
+  </head>
+
+
+<!-- NAVBAR
+================================================== -->
+  <body>
+
+   <div class="wrapper">
+        <header>
+        <h3><a href="/">Vamshi Suram</a></h3>
+        <br />
+        <p class="view"> <img src="images/Vamshi.png"
+            alt="vamshi"/> </p>
+
+        <p class="view"><a target="_blank"
+            href="http://www.shippable.com">Software Engineer<small>@Shippable</small> </a>
+
+        <p class="view"><a target="_blank"
+            href="http://http://www.ese.iitb.ac.in/">Masters<small>Energy Science and Engineering</small></a>
+        </p>
+        <p class="view"><a target="_blank"
+            href="http://www.mech.iitm.ac.in/">Bachelors<small>Mechanical Engineering</small></a>
+        </p>
+
+        <p class="view"><a target="_blank"
+            href="http://www.vamshisuram.blogspot.com">Blog<small>A beautiful mind</small></a>
+        </p>
+
+        </header>
+
+        <section>
+
+     <!--
+      NG-APP DIVISION
+      -->
+    <div ng-app="myapp">
+      <div ng-controller="singlePostController">
+      <p>Input data for the chart: </p>
+        <p>data- {{data}}</p>
+
+      <p>Chart for the given data using D3.js</p>
+      <p>wait for it :)</p>
+      </div>
+    </div>
+    </section>
+
+
+      <!-- /END THE FEATURETTES -->
+
+
+      <!-- FOOTER -->
+      <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2014 VamshiSuram.
+        <a href="http://vamshisuram.blogspot.in/">Blog</a></p>
+      </footer>
+
+
+
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/d3.js"></script>
+    <script src="app.js"></script>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/docs.min.js"></script>  -->
+  </body>
+</html>

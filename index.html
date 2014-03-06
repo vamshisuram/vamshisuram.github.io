@@ -1,86 +1,130 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="vamshisuram tech notes">
-    <meta name="author" content="vamshi suram">
-    <link rel="shortcut icon" href="">
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="styles/style.css" rel="stylesheet">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="vamshisuram tech notes">
+  <meta name="author" content="vamshi suram">
+  <link rel="shortcut icon" href="">
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="styles/style.css" rel="stylesheet">
+
+  <script src="lib/angular/angular.js"></script>
+  <script src="lib/d3.js"></script>
+  <script src="app.js"></script>
 
 
  <!--   <title>Carousel Template for Bootstrap</title>
-    <link href="carousel.css" rel="stylesheet">   -->
-  </head>
+ <link href="carousel.css" rel="stylesheet">   -->
+</head>
 
 
 <!-- NAVBAR
-================================================== -->
+  ================================================== -->
   <body>
 
-   <div class="wrapper">
-        <header>
-        <h3><a href="/">Vamshi Suram</a></h3>
-        <br />
-        <p class="view"> <img src="images/Vamshi.png"
-            alt="vamshi"/> </p>
+  <div class="wrapper">
+    <header>
+      <h3><a href="/">Vamshi Suram</a></h3>
+      <br />
+      <p class="view"> <img src="images/Vamshi.png"
+        alt="vamshi"/> </p>
 
         <p class="view"><a target="_blank"
-            href="http://www.shippable.com">Software Engineer<small>@Shippable</small> </a>
+          href="http://www.shippable.com">Software Engineer<small>@Shippable</small> </a>
 
-        <p class="view"><a target="_blank"
+          <p class="view"><a target="_blank"
             href="http://http://www.ese.iitb.ac.in/">Masters<small>Energy Science and Engineering</small></a>
-        </p>
-        <p class="view"><a target="_blank"
+          </p>
+          <p class="view"><a target="_blank"
             href="http://www.mech.iitm.ac.in/">Bachelors<small>Mechanical Engineering</small></a>
-        </p>
+          </p>
 
-        <p class="view"><a target="_blank"
+          <p class="view"><a target="_blank"
             href="http://www.vamshisuram.blogspot.com">Blog<small>A beautiful mind</small></a>
-        </p>
+          </p>
+      </header>
 
-        </header>
-
-        <section>
 
      <!--
       NG-APP DIVISION
-      -->
-    <div ng-app="myapp">
-      <div ng-controller="singlePostController">
-      <p>Input data for the chart: </p>
-        <p>data- {{data}}</p>
+    -->
+    <section>
+      <div ng-app="myapp">
+        <div ng-controller="singlePostController">
+          <p>Input data for the chart: </p>
+          <p>data- [5,10,15,20,25]</p>
+          <p>Chart for the given data using D3.js</p>
+          <script type="text/javascript">
+            var dataset = [150,300,415,320,225];
+            var w = 500;
+            var h = 500;
+            var barpadding = 1;
+            var svg = d3.select("section").append("svg")
+                        .attr("width", w)
+                        .attr("height", h);
 
-      <p>Chart for the given data using D3.js</p>
-      <p>wait for it :)</p>
+            svg.selectAll("rect")
+            .data(dataset)
+            .enter()
+            .append("rect")
+            .attr("class", "bar")
+            .attr("x", function(d,i){
+              return i * (w/dataset.length);
+            })
+            .attr("y", function(d){
+              return h-d;
+            })
+            .attr("width", w/dataset.length - barpadding)
+            .attr("height", function(d){
+              return d;
+            })
+            .attr("fill", "teal")
+
+
+            svg.selectAll("text")
+            .data(dataset)
+            .enter()
+            .append("text")
+            .text(function(d){
+              return d;
+            })
+            .attr("x", function(d, i) {
+              return i * (w / dataset.length) + (w/dataset.length - barpadding)/2;
+            })
+            .attr("y", function(d) {
+              return h - d + 15;
+            })
+            .attr("font-family", "sans-serif")
+            .attr("font-size", "15px")
+            .attr("fill", "white")
+            .attr("text-anchor", "middle");
+
+          </script>
+        </div>
       </div>
-    </div>
     </section>
 
 
-      <!-- /END THE FEATURETTES -->
+    <!-- /END THE FEATURETTES -->
 
 
-      <!-- FOOTER -->
-      <footer>
-        <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2014 VamshiSuram.
+    <!-- FOOTER -->
+    <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+      <p>&copy; 2014 VamshiSuram.
         <a href="http://vamshisuram.blogspot.in/">Blog</a></p>
       </footer>
 
 
-
-    <script src="lib/angular/angular.js"></script>
-    <script src="lib/d3.js"></script>
-    <script src="app.js"></script>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!--
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="../../dist/js/bootstrap.min.js"></script>
     <script src="../../assets/js/docs.min.js"></script>  -->
+
   </body>
-</html>
+  </html>

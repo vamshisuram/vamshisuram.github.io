@@ -1,5 +1,13 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:300italic,700italic,300,700);
 
+.bar {
+  display: inline-block;
+  width: 20px;
+  height: 75px;
+  margin-right: 2px;
+  background-color: teal;
+}
+
 body {
   padding:50px;
   font:14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;

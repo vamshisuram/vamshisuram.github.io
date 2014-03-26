@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="vamshisuram tech notes">
   <meta name="author" content="vamshi suram">
+  <link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
   <link rel="shortcut icon" href="">
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="styles/style.css" rel="stylesheet">
@@ -52,59 +53,7 @@
       NG-APP DIVISION
     -->
     <section>
-      <div ng-app="myapp">
-        <div ng-controller="singlePostController">
-          <p>Input data for the chart: </p>
-          <p>data- [5,10,15,20,25]</p>
-          <p>Chart for the given data using D3.js</p>
-          <script type="text/javascript">
-            var dataset = [150,300,415,320,225];
-            var w = 500;
-            var h = 500;
-            var barpadding = 1;
-            var svg = d3.select("section").append("svg")
-                        .attr("width", w)
-                        .attr("height", h);
-
-            svg.selectAll("rect")
-            .data(dataset)
-            .enter()
-            .append("rect")
-            .attr("class", "bar")
-            .attr("x", function(d,i){
-              return i * (w/dataset.length);
-            })
-            .attr("y", function(d){
-              return h-d;
-            })
-            .attr("width", w/dataset.length - barpadding)
-            .attr("height", function(d){
-              return d;
-            })
-            .attr("fill", "teal")
-
-
-            svg.selectAll("text")
-            .data(dataset)
-            .enter()
-            .append("text")
-            .text(function(d){
-              return d;
-            })
-            .attr("x", function(d, i) {
-              return i * (w / dataset.length) + (w/dataset.length - barpadding)/2;
-            })
-            .attr("y", function(d) {
-              return h - d + 15;
-            })
-            .attr("font-family", "sans-serif")
-            .attr("font-size", "15px")
-            .attr("fill", "white")
-            .attr("text-anchor", "middle");
-
-          </script>
-        </div>
-      </div>
+      <h4><a href="./Resume/resume.html">View my CV</a></h4>
     </section>
 
 

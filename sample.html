@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Search Facebook Pages</title>
+    <link rel="stylesheet" href="./sample-style.css">
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId: '688105354600176',
+                cookie: true,
+                xfbml: true,
+                version: 'v2.2'
+            });
+
+            var app = document.createElement('script');
+            app.src = "./sample-app.js";
+            var body = document.getElementsByTagName('body')[0];
+            body.appendChild(app);
+        };
+
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <input type="text" id="searchText">
+    <button id="searchBtn" onclick="window.getPages()">Search for Facebook pages</button>
+    <div id="pagesList"></div>
+</body>
+
+</html>

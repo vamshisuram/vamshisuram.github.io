@@ -46,3 +46,36 @@ body {
     color: white;
     border: none;
 }
+
+#dialogoverlay{
+    display: none;
+    opacity: .8;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background: #FFF;
+    width: 100%;
+    z-index: 10;
+}
+
+#dialogbox{
+    color: white;
+    display: none;
+    position: fixed;
+    background: #474242;
+    border: none;
+    width:550px;
+    z-index: 10;
+    padding: 15px;
+    font-family: sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: justify;
+}
+
+#dialogbox button {
+    border: none;
+    float: right;
+    font-weight: bold;
+    font-size: 14px;
+}

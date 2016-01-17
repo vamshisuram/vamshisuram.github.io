@@ -48,13 +48,44 @@ function getEventHandler(data) {
     };
 }
 
+function CustomAlert(){
+    this.render = function(dialog){
+        var winW = window.innerWidth;
+        var winH = window.innerHeight;
+        var dialogoverlay = document.getElementById('dialogoverlay');
+        var dialogbox = document.getElementById('dialogbox');
+        dialogoverlay.style.display = "block";
+        dialogoverlay.style.height = winH+"px";
+        dialogbox.style.left = (winW/2) - (550 * .5)+"px";
+        dialogbox.style.top = "100px";
+        dialogbox.style.display = "block";
+
+        document.getElementById('dialogbox').innerHTML = dialog + '<br/><button onclick="Alert.ok()">OK</button>';
+    }
+    this.ok = function(){
+        document.getElementById('dialogbox').style.display = "none";
+        document.getElementById('dialogoverlay').style.display = "none";
+    }
+}
+var Alert = new CustomAlert();
+
+function getInfoEventHandler(data) {
+    return function(event) {
+        FB.api("/" + data.id, 'GET', {
+            access_token: userAccessToken
+        }, function(response) {
+            Alert.render(response.description);
+        });
+    };
+}
+
 function createPageSection(pageData) {
     var collection = document.getElementById("pagesList");
     var div = document.createElement('div');
     div.id = pageData.id;
     div.className = 'pageSection';
 
-    var name = createElement('p', pageData.name, 'name');
+    var name = createElement('p', pageData.name, 'name', getInfoEventHandler(pageData));
     var category = createElement('p', pageData.category, 'category');
     var btn = createElement('button', 'Like', 'likeBtn', getEventHandler(pageData));
 

@@ -2,15 +2,13 @@ var userAccessToken;
 
 function logIntoApp() {
     FB.login(function(response) {
-        console.log('response');
-        console.log(response);
         userAccessToken = response.authResponse.accessToken;
     }, {
         scope: 'public_profile'
     });
 }
 
-/*FB.getLoginStatus(function(response) {
+FB.getLoginStatus(function(response) {
     if (response.status === 'connected') {
         console.log('user has already logged into app');
         userAccessToken = response.authResponse.accessToken;
@@ -21,9 +19,7 @@ function logIntoApp() {
         console.log('user not logged into FB');
         logIntoApp();
     }
-});*/
-
-logIntoApp();
+});
 
 function createElement(type, text, className, eventHandler) {
     var ele = document.createElement(type);
@@ -89,8 +85,6 @@ function searchForPages(text) {
         access_token: userAccessToken,
         fields: "id,name,category"
     }, function(response) {
-        console.log("searching for pages");
-        console.log(response);
         var topTenPages = response.data.slice(0, 10);
         addPagesDataToDOM(topTenPages);
     });
